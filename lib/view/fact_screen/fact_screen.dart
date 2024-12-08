@@ -1,5 +1,5 @@
 import 'package:api_integration_sample/controler/fact_screen_controler.dart';
-import 'package:api_integration_sample/main.dart';
+import 'package:api_integration_sample/view/fact_screen/nationalize_api_screen/nationalize_api_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -16,6 +16,11 @@ class _FactScreenState extends State<FactScreen> {
       final FactScreenState = context.watch<FactScreenControler>();
 
     return Scaffold(
+      appBar: AppBar(actions: [
+        IconButton(onPressed: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => NationalizeApiScreen(),));
+        },icon: Icon(Icons.arrow_forward),)
+      ],),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           context.read<FactScreenControler>().getRandomFact();//call provider class

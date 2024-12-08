@@ -1,4 +1,5 @@
 import 'package:api_integration_sample/controler/fact_screen_controler.dart';
+import 'package:api_integration_sample/controler/nationalize_api_screen_controler.dart';
 import 'package:api_integration_sample/view/fact_screen/fact_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -12,8 +13,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [ChangeNotifierProvider(create: (context) => FactScreenControler(),)],
+      providers: [
+        ChangeNotifierProvider(create: (context) => FactScreenControler(),),
+        ChangeNotifierProvider(create: (context) => NationalizeApiScreenControler(),)],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         home: FactScreen(),
       ),
     );
